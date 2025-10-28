@@ -43,9 +43,28 @@ class PetController:
             else:
                 return f'Питомца с id {id} нет в базе данных'
 
+    # Вывести список "питомцы владельца"
+    @classmethod
+    def list_owner(cls, owner):
+        list = []
+        for dict in cls.get():
+            if dict['owner'] == owner:
+                list.append(dict['name'])
+        return list
+    # Найти по типу
+    @classmethod
+    def type_pet(cls, type):
+        result = f'Нет - {type}'
+        for dict in cls.get():
+            if dict['type'] == type:
+                result = f'Есть {type}'
+        return result
+
 
 if __name__ == "__main__":
     print(PetController.get())
     print(PetController.add('Машка', 'Кошка', 5, 'Мария'))
     print(PetController.get())
     print(PetController.vaccinated(2))
+    print(PetController.list_owner('Мария'))
+    print(PetController.type_pet('Собака'))

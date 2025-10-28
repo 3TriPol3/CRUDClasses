@@ -6,7 +6,7 @@ class Pet:
     '''
     def __init__(self):
         self.__list_pets = [
-            {"id": 1, "name": "Барсик", "type": "кот", "age": 3, "owner": "Мария", "vaccinated": True}
+            {"id": 1, "name": "Барсик", "type": "кот", "age": 3, "owner": "Мария", "vaccinated": False}
         ] # список питомцев
         self.id = 2
 
