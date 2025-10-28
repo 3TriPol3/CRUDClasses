@@ -21,56 +21,40 @@ class MyTasks_3:
         Создаёт новую покупку в виде словаря: {"id": 1, "product": "Хлеб", "quantity": 1, "bought": False}
         И добавляет в список атрибута self.shopping_list
         :Params
-            product(str): Имя в виде строки
-            id(int): Создаётся автогматически с помощью атрибута self.id
-            phone(int): Телефонный номер int
-            email(str): Электронная почта в виде строки
+        product(str): Название продукта в виде строки
+        quantity(int): Количество продуктов
+        bought(boolean): Отмечает купил или нет
         :Returns:
         '''
-        self.contacts.append(
+        self.shopping_list.append(
             {
                 "id": self.id,
-                "name": name,
-                "phone": phone,
-                "email": email
+                "product": product,
+                "quantity": quantity,
+                "bought": False
             }
         )
         self.id += 1 # Увеличить на 1, следующий id будет на 1 больше
         return True
 
-        # Показать всё
-    @property
-    def contacts(self):
+    # Отметить купленным
+    def bought(self, id):
         '''
-        Выводит информацию о всех записях в телефонной книге
-        :Returns: Возвращает список словарей с записями
-        '''
-        return self.__shopping_list
-
-    # Найти по имени - Read
-    def show_name(self, name):
-        for dict in self.__shopping_list:
-            if dict['name'] == name:
-                return dict
-            else:
-                return f'Запись с таким именем не существует'
-
-    # Отметить выполненое - Update
-    def update(self, id, **kwargs):
-        '''
-        Обновляет запись в телефонной книге
-        :Params:
-        id Словарь с данным id
-        kwargs "Любой ключ":"значение этого ключа"
+        Меняет значения bought на True у словаря с id == id из аргумента
+        :Params id: Словарь с данным id
         :Returns:
-            contact - словарь
+        list - словарь
         '''
         for dict in self.__shopping_list:
-            if dict['id'] == id:
-                if 'id' in kwargs:
-                    if self.show_name(kwargs['name']) is not None:
-                        return f'Запись с таким телефонным номером уже существует'
-                dict.update(kwargs)
+             if dict['id'] == id:
+                dict['bought'] = True
+                return dict
+
+    # Вывести некупленное
+    def show_not_brought(self):
+        for item in self.__shopping_list:
+            if not item['bought']:
+                print(f"{item['product']} - {item['quantity']} шт.")
 
     # Удалить - Delete
     def delete(self, id):
@@ -78,14 +62,25 @@ class MyTasks_3:
             if dict['id'] == id:
                 self.__shopping_list.remove(dict)
 
+    # Показать всё
+    @property
+    def shopping_list(self):
+        '''
+        Выводит информацию о всех продуктах
+        :Returns: Возвращает список словарей с продуктами
+        '''
+        return self.__shopping_list
+
+
+
 if __name__ == "__main__":
-    contact = MyTasks_3()
-    print(contact.contacts)
-    contact.add('Максим', '+79123456789', 'ivan@mail.ru' ) # Добавление контакта
-    print(contact.contacts)
-    print(contact.show_name('Иван')) # Найти по имени
-    print(contact.contacts)
-    contact.update(1, phone='+79199999999') # Обновить телефон
-    print(contact.contacts)
-    contact.delete(2) # Удалить контакт
-    print(contact.contacts)
+    list = MyTasks_3()
+    print(list.shopping_list)
+    list.add('Шоколад', '4', False) # Добавление продукта
+    print(list.shopping_list)
+    print('Метод изменить статус', list.bought(3))
+    print(list.shopping_list)
+    list.show_not_brought()
+    print(list.shopping_list)
+    list.delete(2)  # Удалить продукт
+    print(list.shopping_list)
