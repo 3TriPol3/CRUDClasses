@@ -57,15 +57,6 @@ class MyTasks_1Controller:
 if __name__ == "__main__":
     print(MyTasks_1Controller.tasks())
     print(MyTasks_1Controller.add('Купить хлеб'))
-    print(MyTasks_1Controller.get())
-    print(MyTasks_1Controller.vaccinated(2))
-    print(MyTasks_1Controller.list_owner('Мария'))
-    print(MyTasks_1Controller.type_pet('Собака'))
-
-    print(task.tasks)
-    task.add("Сходить в ЯМК")
-    print(task.tasks)
-    print('Метод изменить статус', task.completed(3))
-    print(task.tasks)
-    task.delete(1)
-    print(task.tasks)
+    print(MyTasks_1Controller.tasks())
+    print(MyTasks_1Controller.completed(2))
+    print(MyTasks_1Controller.delete('Мария'))
