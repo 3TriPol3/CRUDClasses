@@ -37,7 +37,7 @@ class MyTasks_3:
         self.id += 1 # Увеличить на 1, следующий id будет на 1 больше
         return True
 
-    # Отметить купленным
+    # Отметить купленным - Update
     def bought(self, id):
         '''
         Меняет значения bought на True у словаря с id == id из аргумента
@@ -50,7 +50,7 @@ class MyTasks_3:
                 dict['bought'] = True
                 return dict
 
-    # Вывести некупленное
+    # Вывести некупленное - Read
     def show_not_brought(self):
         for item in self.__shopping_list:
             if not item['bought']:

@@ -40,9 +40,12 @@ class PetController:
             if dict['id'] == id:
                 dict['vaccinated'] = True
                 return dict
+            else:
+                return f'Питомца с id {id} нет в базе данных'
 
 
 if __name__ == "__main__":
     print(PetController.get())
     print(PetController.add('Машка', 'Кошка', 5, 'Мария'))
-    print(type(PetController.get()))
+    print(PetController.get())
+    print(PetController.vaccinated(2))
