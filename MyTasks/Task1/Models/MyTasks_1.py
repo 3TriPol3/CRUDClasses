@@ -9,7 +9,7 @@ class MyTasks_1:
         Конструктор в котором задаю атрибуты список дел и идентификаторы дел
         Список дел - состоит из словарей
         '''
-        self.__tasks = [
+        self.__list_tasks = [
             {"id": 1, "task": "Купить молоко", "completed": False},
             {"id": 2, "task": "Сделать уроки", "completed": True}
         ] # Атрибут класса - список с двумя делами
@@ -22,7 +22,7 @@ class MyTasks_1:
         :Returns:
         список задач
         '''
-        return self.__tasks
+        return self.__list_tasks
 
     @tasks.setter  # Сеттер
     def tasks(self, dict):

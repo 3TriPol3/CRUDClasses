@@ -7,25 +7,23 @@ class MyTasks_1Controller:
      добавить,
      показать все,
      отметить выполненной,
-      удалить
+     удалить
      '''
     # CRUD
-    obj = MyTasks_1() # Создал объект класса Pet
+    obj = MyTasks_1() # Создал объект класса MyTasks_1
 
     # Добавить дело - Create
     @classmethod
     def add(cls, task):
-        cls.obj.tasks(
-            {
+        cls.obj.tasks = {
                 "task": task,
                 "completed": False
-            }
-        )
+        }
         return True
 
     # Показать всё - Read
     @classmethod
-    def tasks(cls):
+    def get(cls):
         '''
         Выводит информацию о делах
         :Returns: Возвращает список словарей с делами
@@ -55,8 +53,10 @@ class MyTasks_1Controller:
 
 
 if __name__ == "__main__":
-    print(MyTasks_1Controller.tasks())
+    print(MyTasks_1Controller.get())
     print(MyTasks_1Controller.add('Купить хлеб'))
-    print(MyTasks_1Controller.tasks())
+    print(MyTasks_1Controller.get())
     print(MyTasks_1Controller.completed(2))
-    print(MyTasks_1Controller.delete('Мария'))
+    print(MyTasks_1Controller.get())
+    print(MyTasks_1Controller.delete(1))
+    print(MyTasks_1Controller.get())
