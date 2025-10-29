@@ -1,4 +1,0 @@
-class MyTasks_4:
-    '''
-
-    '''
