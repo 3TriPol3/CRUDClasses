@@ -177,8 +177,3 @@ class MyTasks_4_View(Tk):
                 dict["rating"],
                 status
             ))
-
-
-if __name__ == "__main__":
-    app = MyTasks_4_View()
-    app.mainloop()

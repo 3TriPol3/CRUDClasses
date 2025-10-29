@@ -92,8 +92,3 @@ class MyTasks_1_View(Tk):
         task_id = int(self.tree.item(selected_item, "values")[0])
         My_Tasks_1Controller.delete(task_id)
         self.update_table()
-
-
-if __name__ == "__main__":
-    app = MyTasks_1_View()
-    app.mainloop()

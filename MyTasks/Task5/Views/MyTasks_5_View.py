@@ -154,8 +154,3 @@ class MyTasks_5_View(Tk):
                 dict["age"],
                 dict["grade"]
             ))
-
-
-if __name__ == "__main__":
-    app = MyTasks_5_View()
-    app.mainloop()

@@ -139,8 +139,3 @@ class MyTasks_3_View(Tk):
                 dict["quantity"],
                 status
             ))
-
-
-if __name__ == "__main__":
-    app = MyTasks_3_View()
-    app.mainloop()

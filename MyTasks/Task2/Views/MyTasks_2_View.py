@@ -149,8 +149,3 @@ class MyTasks_2_View(Tk):
                 dict["phone"],
                 dict["email"]
             ))
-
-
-if __name__ == "__main__":
-    app = MyTasks_2_View()
-    app.mainloop()

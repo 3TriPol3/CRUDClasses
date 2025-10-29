@@ -132,8 +132,3 @@ class MyTasks_6_View(Tk):
                 ))
         else:
             self.tree.insert("", END, values=("—", expenses, "—", "—", "—"))
-
-
-if __name__ == "__main__":
-    app = MyTasks_6_View()
-    app.mainloop()
